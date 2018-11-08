@@ -36,7 +36,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.spongycastle.crypto.params.KeyParameter;
+import org.bouncycastle.crypto.params.KeyParameter;
 
 import javax.annotation.Nullable;
 import java.io.ByteArrayInputStream;
@@ -120,7 +120,7 @@ public class ChannelConnectionTest extends TestWithWallet {
         serverWallet = new Wallet(UNITTEST);
         serverWallet.addExtension(new StoredPaymentChannelServerStates(serverWallet, failBroadcaster));
         serverWallet.freshReceiveKey();
-        // Use an atomic boolean to indicate failure because fail()/assert*() dont work in network threads
+        // Use an atomic boolean to indicate failure because fail()/assert*() don't work in network threads
         fail = new AtomicBoolean(false);
 
         // Set up a way to monitor broadcast transactions. When you expect a broadcast, you must release a permit
